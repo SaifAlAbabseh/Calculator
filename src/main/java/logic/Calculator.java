@@ -1,8 +1,5 @@
 package logic;
 
-import javax.swing.*;
-
-
 public class Calculator {
 
     private final String expr;
@@ -61,7 +58,7 @@ public class Calculator {
                         if (string.equals("-")) s2.push(num2 - num1);
                     } else s2.push(string);
                 }
-                return "" + s2.pop();
+                return String.format("%.4f", (double)s2.pop());
             } catch (Exception e) {
                 return null;
             }
