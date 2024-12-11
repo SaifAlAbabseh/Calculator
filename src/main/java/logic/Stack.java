@@ -1,31 +1,29 @@
 package logic;
 
+import java.util.ArrayList;
+
 public class Stack {
-    Node tail;
+    private final ArrayList<Object> stack;
+    private int top;
 
     public Stack() {
-        tail = null;
-    }
-
-    public void push(Object data) {
-        Node temp = new Node();
-        temp.data = data;
-        temp.below = tail;
-        tail = temp;
+        stack = new ArrayList<>();
+        top = -1;
     }
 
     public Object top() {
-        return tail.data;
+        return stack.get(top);
     }
 
     public boolean isEmpty() {
-        return tail == null;
+        return top == -1;
+    }
+
+    public void push(Object value) {
+        stack.add(++top, value);
     }
 
     public Object pop() {
-        Node temp = tail;
-        tail = temp.below;
-        temp.below = null;
-        return temp.data;
+        return isEmpty() ? null : stack.get(top--);
     }
 }
